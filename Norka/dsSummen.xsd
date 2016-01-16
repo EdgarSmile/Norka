@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsSummen" targetNamespace="http://tempuri.org/dsSummen.xsd" xmlns:mstns="http://tempuri.org/dsSummen.xsd" xmlns="http://tempuri.org/dsSummen.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="NorkaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NorkaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Norka.Properties.Settings.GlobalReference.Default.NorkaConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SummenTableAdapter" GeneratorDataComponentClassName="SummenTableAdapter" Name="Summen" UserDataComponentName="SummenTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="NorkaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     MAX(Lagerkategorie.Bezeichnung) AS Bezeichnung, SUM(Lager.Stk * (Lager.EK) / Lager.Faktor) AS Summe, 0 AS Sort
+FROM         Lager INNER JOIN
+                      Lagerkategorie ON Lager.Kategorie = Lagerkategorie.ID
+GROUP BY Lagerkategorie.ID
+UNION
+SELECT     'Gesamtsumme' AS Bezeichnung, SUM(Stk * (EK / Faktor)) AS Summe, 1 AS Sort
+FROM         Lager AS Lager_1
+ORDER BY sort</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Bezeichnung" DataSetColumn="Bezeichnung" />
+              <Mapping SourceColumn="Summe" DataSetColumn="Summe" />
+              <Mapping SourceColumn="Sort" DataSetColumn="Sort" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsSummen" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsSummen" msprop:Generator_DataSetName="dsSummen" msprop:EnableTableAdapterManager="True">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Summen" msprop:Generator_UserTableName="Summen" msprop:Generator_RowDeletedName="SummenRowDeleted" msprop:Generator_RowChangedName="SummenRowChanged" msprop:Generator_RowClassName="SummenRow" msprop:Generator_RowChangingName="SummenRowChanging" msprop:Generator_RowEvArgName="SummenRowChangeEvent" msprop:Generator_RowEvHandlerName="SummenRowChangeEventHandler" msprop:Generator_TableClassName="SummenDataTable" msprop:Generator_TableVarName="tableSummen" msprop:Generator_RowDeletingName="SummenRowDeleting" msprop:Generator_TablePropName="Summen">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Bezeichnung" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Bezeichnung" msprop:Generator_ColumnPropNameInRow="Bezeichnung" msprop:Generator_ColumnVarNameInTable="columnBezeichnung" msprop:Generator_ColumnPropNameInTable="BezeichnungColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Summe" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Summe" msprop:Generator_ColumnPropNameInRow="Summe" msprop:Generator_ColumnVarNameInTable="columnSumme" msprop:Generator_ColumnPropNameInTable="SummeColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Sort" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Sort" msprop:Generator_ColumnPropNameInRow="Sort" msprop:Generator_ColumnVarNameInTable="columnSort" msprop:Generator_ColumnPropNameInTable="SortColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

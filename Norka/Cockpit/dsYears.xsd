@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsYears" targetNamespace="http://tempuri.org/dsYears.xsd" xmlns:mstns="http://tempuri.org/dsYears.xsd" xmlns="http://tempuri.org/dsYears.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="NorkaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NorkaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Norka.Properties.Settings.GlobalReference.Default.NorkaConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UmsatzJahrVonTableAdapter" GeneratorDataComponentClassName="UmsatzJahrVonTableAdapter" Name="UmsatzJahrVon" UserDataComponentName="UmsatzJahrVonTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="NorkaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     YEAR(Datum) AS Jahr
+FROM         Rechnung
+GROUP BY YEAR(Datum)
+ORDER BY Jahr DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Jahr" DataSetColumn="Jahr" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UmsatzJahrBisTableAdapter" GeneratorDataComponentClassName="UmsatzJahrBisTableAdapter" Name="UmsatzJahrBis" UserDataComponentName="UmsatzJahrBisTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="NorkaConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT     YEAR(Datum) AS Jahr
+FROM         Rechnung
+GROUP BY YEAR(Datum)
+ORDER BY Jahr DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Jahr" DataSetColumn="Jahr" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AARJahrVonTableAdapter" GeneratorDataComponentClassName="AARJahrVonTableAdapter" Name="AARJahrVon" UserDataComponentName="AARJahrVonTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="NorkaConnectionString (Settings)" DbObjectName="SELECT YEAR(Datum) AS Jahr FROM Angebot UNION SELECT YEAR(Datum) AS Jahr FROM Auftrag UNION SELECT YEAR(Datum) AS Jahr FROM Rechnung" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     Jahr
+FROM         (SELECT     YEAR(Datum) AS Jahr
+                       FROM          Angebot
+                       UNION
+                       SELECT     YEAR(Datum) AS Jahr
+                       FROM         Auftrag
+                       UNION
+                       SELECT     YEAR(Datum) AS Jahr
+                       FROM         Rechnung) AS j
+GROUP BY Jahr
+ORDER BY Jahr DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Jahr" DataSetColumn="Jahr" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AARJahrBisTableAdapter" GeneratorDataComponentClassName="AARJahrBisTableAdapter" Name="AARJahrBis" UserDataComponentName="AARJahrBisTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="NorkaConnectionString (Settings)" DbObjectName="SELECT YEAR(Datum) AS Jahr FROM Angebot UNION SELECT YEAR(Datum) AS Jahr FROM Auftrag UNION SELECT YEAR(Datum) AS Jahr FROM Rechnung" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT     Jahr
+FROM         (SELECT     YEAR(Datum) AS Jahr
+                       FROM          Angebot
+                       UNION
+                       SELECT     YEAR(Datum) AS Jahr
+                       FROM         Auftrag
+                       UNION
+                       SELECT     YEAR(Datum) AS Jahr
+                       FROM         Rechnung) AS j
+GROUP BY Jahr
+ORDER BY Jahr DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Jahr" DataSetColumn="Jahr" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsYears" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsYears" msprop:Generator_UserDSName="dsYears" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="UmsatzJahrVon" msprop:Generator_UserTableName="UmsatzJahrVon" msprop:Generator_RowDeletedName="UmsatzJahrVonRowDeleted" msprop:Generator_TableClassName="UmsatzJahrVonDataTable" msprop:Generator_RowChangedName="UmsatzJahrVonRowChanged" msprop:Generator_RowClassName="UmsatzJahrVonRow" msprop:Generator_RowChangingName="UmsatzJahrVonRowChanging" msprop:Generator_RowEvArgName="UmsatzJahrVonRowChangeEvent" msprop:Generator_RowEvHandlerName="UmsatzJahrVonRowChangeEventHandler" msprop:Generator_TablePropName="UmsatzJahrVon" msprop:Generator_TableVarName="tableUmsatzJahrVon" msprop:Generator_RowDeletingName="UmsatzJahrVonRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Jahr" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Jahr" msprop:Generator_ColumnPropNameInRow="Jahr" msprop:Generator_ColumnVarNameInTable="columnJahr" msprop:Generator_ColumnPropNameInTable="JahrColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="UmsatzJahrBis" msprop:Generator_UserTableName="UmsatzJahrBis" msprop:Generator_RowDeletedName="UmsatzJahrBisRowDeleted" msprop:Generator_TableClassName="UmsatzJahrBisDataTable" msprop:Generator_RowChangedName="UmsatzJahrBisRowChanged" msprop:Generator_RowClassName="UmsatzJahrBisRow" msprop:Generator_RowChangingName="UmsatzJahrBisRowChanging" msprop:Generator_RowEvArgName="UmsatzJahrBisRowChangeEvent" msprop:Generator_RowEvHandlerName="UmsatzJahrBisRowChangeEventHandler" msprop:Generator_TablePropName="UmsatzJahrBis" msprop:Generator_TableVarName="tableUmsatzJahrBis" msprop:Generator_RowDeletingName="UmsatzJahrBisRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Jahr" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Jahr" msprop:Generator_ColumnPropNameInRow="Jahr" msprop:Generator_ColumnVarNameInTable="columnJahr" msprop:Generator_ColumnPropNameInTable="JahrColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AARJahrVon" msprop:Generator_UserTableName="AARJahrVon" msprop:Generator_RowDeletedName="AARJahrVonRowDeleted" msprop:Generator_TableClassName="AARJahrVonDataTable" msprop:Generator_RowChangedName="AARJahrVonRowChanged" msprop:Generator_RowClassName="AARJahrVonRow" msprop:Generator_RowChangingName="AARJahrVonRowChanging" msprop:Generator_RowEvArgName="AARJahrVonRowChangeEvent" msprop:Generator_RowEvHandlerName="AARJahrVonRowChangeEventHandler" msprop:Generator_TablePropName="AARJahrVon" msprop:Generator_TableVarName="tableAARJahrVon" msprop:Generator_RowDeletingName="AARJahrVonRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Jahr" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Jahr" msprop:Generator_ColumnPropNameInRow="Jahr" msprop:Generator_ColumnVarNameInTable="columnJahr" msprop:Generator_ColumnPropNameInTable="JahrColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AARJahrBis" msprop:Generator_UserTableName="AARJahrBis" msprop:Generator_RowDeletedName="AARJahrBisRowDeleted" msprop:Generator_TableClassName="AARJahrBisDataTable" msprop:Generator_RowChangedName="AARJahrBisRowChanged" msprop:Generator_RowClassName="AARJahrBisRow" msprop:Generator_RowChangingName="AARJahrBisRowChanging" msprop:Generator_RowEvArgName="AARJahrBisRowChangeEvent" msprop:Generator_RowEvHandlerName="AARJahrBisRowChangeEventHandler" msprop:Generator_TablePropName="AARJahrBis" msprop:Generator_TableVarName="tableAARJahrBis" msprop:Generator_RowDeletingName="AARJahrBisRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Jahr" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Jahr" msprop:Generator_ColumnPropNameInRow="Jahr" msprop:Generator_ColumnVarNameInTable="columnJahr" msprop:Generator_ColumnPropNameInTable="JahrColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

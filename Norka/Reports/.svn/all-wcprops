@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/source/norka/!svn/ver/106/trunk/Norka/Norka/Reports
+END
+dsReports.xsc
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/source/norka/!svn/ver/127/trunk/Norka/Norka/Reports/dsReports.xsc
+END
+dsReports.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/source/norka/!svn/ver/127/trunk/Norka/Norka/Reports/dsReports.xsd
+END
+dsReports.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/source/norka/!svn/ver/127/trunk/Norka/Norka/Reports/dsReports.Designer.cs
+END
+Form_Report.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/source/norka/!svn/ver/127/trunk/Norka/Norka/Reports/Form_Report.Designer.cs
+END
+dsReports.xss
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/source/norka/!svn/ver/127/trunk/Norka/Norka/Reports/dsReports.xss
+END
+Form_Report.cs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/source/norka/!svn/ver/127/trunk/Norka/Norka/Reports/Form_Report.cs
+END
+rKalkulation.cs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/source/norka/!svn/ver/3/trunk/Norka/Norka/Reports/rKalkulation.cs
+END
+EReports.cs
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/source/norka/!svn/ver/128/trunk/Norka/Norka/Reports/EReports.cs
+END
+ReportManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/source/norka/!svn/ver/128/trunk/Norka/Norka/Reports/ReportManager.cs
+END
+Form_Report.resx
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/source/norka/!svn/ver/3/trunk/Norka/Norka/Reports/Form_Report.resx
+END

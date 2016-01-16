@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsZeichnen" targetNamespace="http://tempuri.org/dsZeichnen.xsd" xmlns:mstns="http://tempuri.org/dsZeichnen.xsd" xmlns="http://tempuri.org/dsZeichnen.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsZeichnen" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsZeichnen" msprop:Generator_UserDSName="dsZeichnen" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Zeichnen" msprop:Generator_UserTableName="Zeichnen" msprop:Generator_RowDeletedName="ZeichnenRowDeleted" msprop:Generator_TableClassName="ZeichnenDataTable" msprop:Generator_RowChangedName="ZeichnenRowChanged" msprop:Generator_RowClassName="ZeichnenRow" msprop:Generator_RowChangingName="ZeichnenRowChanging" msprop:Generator_RowEvArgName="ZeichnenRowChangeEvent" msprop:Generator_RowEvHandlerName="ZeichnenRowChangeEventHandler" msprop:Generator_TablePropName="Zeichnen" msprop:Generator_TableVarName="tableZeichnen" msprop:Generator_RowDeletingName="ZeichnenRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DataColumn1" msprop:Generator_UserColumnName="DataColumn1" msprop:Generator_ColumnPropNameInRow="DataColumn1" msprop:Generator_ColumnVarNameInTable="columnDataColumn1" msprop:Generator_ColumnPropNameInTable="DataColumn1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="DataColumn2" msprop:Generator_UserColumnName="DataColumn2" msprop:Generator_ColumnPropNameInRow="DataColumn2" msprop:Generator_ColumnVarNameInTable="columnDataColumn2" msprop:Generator_ColumnPropNameInTable="DataColumn2Column" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

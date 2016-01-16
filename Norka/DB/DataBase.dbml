@@ -1,0 +1,603 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Norka" Class="DataBaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=Norka;Integrated Security=True" SettingsObjectName="Norka.Properties.Settings" SettingsPropertyName="NorkaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Kunde" Member="Kunde">
+    <Type Name="Kunde">
+      <Column Name="KundeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Anrede" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Vorname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Name_Firma" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Straße" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="AdressZusatz1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AdressZusatz2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PLZ" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="Land" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Ort" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefon1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Telefon2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Fax1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Fax2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Mobil" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Homepage" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Matchcode" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Kategorie" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="Notiz" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Kunde_Angebot" Member="Angebot" ThisKey="KundeID" OtherKey="KundeID" Type="Angebot" />
+      <Association Name="Kunde_Auftrag" Member="Auftrag" ThisKey="KundeID" OtherKey="KundeID" Type="Auftrag" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Reports" Member="Reports">
+    <Type Name="Reports">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Pfad" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Kalkulation" Member="Kalkulation">
+    <Type Name="Kalkulation">
+      <Column Name="KalkulationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Sondertext" Type="System.String" DbType="VarChar(198)" CanBeNull="true" />
+      <Column Name="Typ" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Artikel" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AnlagenStk" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Breite" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Tiefe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Türen" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Trennwaende" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Rabatt_VK" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="Rabatt_Art" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Plattenmenge" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Alumenge" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BeschlagStk" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FixkostenGesamt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DivKostenGesamt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MontagepreisEinzel" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="LohnEinzel" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Teile" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PulverpreisEinzel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PulverBool" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="PlattenpreisEinzel" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="AlupreisEinzel" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BeschlagpreisEinzel" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Gesamtpreis100" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Zuschlag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Gesamtpreis" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Kalkulationsparameter" Member="Kalkulationsparameter">
+    <Type Name="Kalkulationsparameter">
+      <Column Name="ParamterID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PlattenkostenTM" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="PlattenkostenTS" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="PlattenkostenNK" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Aluprofilkosten" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Beschlagkosten" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Fixkosten" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Pulverkosten" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Montagekosten" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="LohnkostenTM" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="LohnkostenTS" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="LohnkostenNK" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="OberlichtkostenTM" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="OberlichtkostenTS" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="OberlichtkostenNK" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Gewinn" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="Mwst" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="Sonderzuschlag" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="Aussparung" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VIEW_Angebote_KundeProJahr" Member="VIEW_Angebote_KundeProJahr">
+    <Type Name="VIEW_Angebote_KundeProJahr">
+      <Column Name="Jahr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KundeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name_Firma" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Angebote" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Aufträge" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Rechnungen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VIEW_Nettoumsatz_KundeProJahr" Member="VIEW_Nettoumsatz_KundeProJahr">
+    <Type Name="VIEW_Nettoumsatz_KundeProJahr">
+      <Column Name="Jahr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Umsatz" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="KundeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name_Firma" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VIEW_ArchivAngeboteAlle" Member="VIEW_ArchivAngeboteAlle">
+    <Type Name="VIEW_ArchivAngeboteAlle">
+      <Column Name="AngebotID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KundeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name_Firma" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Empfänger" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Datum" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Typ" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BV" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="BV2" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Nettobetrag" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
+      <Column Name="Gesamtbetrag" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
+      <Column Name="Nachlass" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
+      <Column Name="NachlassArt" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Steuer" Type="System.Decimal" DbType="Decimal(9,0)" CanBeNull="true" />
+      <Column Name="Zahlungsbedingung" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Aufmaß" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="Anfahrt" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="Sondertext" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VIEW_ArchivAuftragAlle" Member="VIEW_ArchivAuftragAlle">
+    <Type Name="VIEW_ArchivAuftragAlle">
+      <Column Name="AuftragID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KundeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name_Firma" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Empfänger" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Datum" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Typ" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BV" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="BV2" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Nettobetrag" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
+      <Column Name="Gesamtbetrag" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
+      <Column Name="Nachlass" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
+      <Column Name="NachlassArt" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Steuer" Type="System.Decimal" DbType="Decimal(9,0)" CanBeNull="true" />
+      <Column Name="Zahlungsbedingung" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Aufmaß" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="Anfahrt" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="Sondertext" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Brief" Member="Brief">
+    <Type Name="Brief">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Betreff" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Bauvorhaben" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Anrede" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ZuHaenden" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Zeichenparameter" Member="Zeichenparameter">
+    <Type Name="Zeichenparameter">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VW_PlattenLuft" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TuerLuft" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="SchildLuft" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="VW_Verbindungsstück" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="KleinesU" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="GrossesU" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="VW_VerstaerkungGrenze" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="RK_TrennwandLuft" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="RK_Trennwandstaerke" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="RK_MittelschildLuft" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="RK_SchildLuft" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="RK_Alu" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="RK_Verbindungsstück" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="EK_Alu" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="SCHILD_Alu" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TW_Alu" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TW_ETW" Type="System.Single" DbType="Float NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Zeichnungsdruck" Member="Zeichnungsdruck">
+    <Type Name="Zeichnungsdruck">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Artikel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VW_Typ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VW_Breite" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="VW_Hoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="VW_Bodenfreiheit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="VW_Tuerbreite" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="VW_SchildLinks" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="VW_SchildRechts" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="VW_Schildhoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="VW_Tuerhoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="VW_PlatteSchildLinks" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="VW_PlatteSchildRechts" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="VW_Verbindungsstueck" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="VW_Verstaerkung" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="VW_Tuere" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TEXT_Beschreibung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RK_Typ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RK_Breite" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_Hoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_Bodenfreiheit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_Tuerbreite" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_Tueranzahl" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_Trennwand" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_SchildLinks" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_SchildRechts" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_Schildhoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_Tuerhoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_Mittelschild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_Tuere" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_PlatteTrennwand" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_PlatteSchildLinks" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_PlatteSchildRechts" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_PlatteMittelschild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_Aussen" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_Alu" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RK_Verbindungsstueck" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Typ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EK_Breite" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Hohe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Bodenfreiheit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Tuerbreite" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Tueranzahl" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Trennwand" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Wandschild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Eckschild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_SchildHoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Tuerhoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Mittelschild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Tuer" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Plattetrennwand" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Plattewandschild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Platteeckschild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_PlatteMittelschild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Aussen" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Alu" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Alueck" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EK_Verbindungsstueck" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_Typ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SK_Breite" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_Hoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_Bodenfreiheit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_Tuerbreite" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_Tueranzahl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SK_Trennwand" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_Wandschild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_Eckschild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_Schildhoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_Tuerhoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_Tuer" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_PlatteTrennwand" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_PlatteWandschild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_PlatteEckschild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_MittelschildLinks" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_MittelschildRechts" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_AluEck" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_Alu" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_Verbindungsstueck" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_PlatteMittelschildLinks" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_PlatteMittelschildRechts" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SK_Aussen" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SW_Stk" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SW_Breite" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SW_Hoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SW_Bodenfreiheit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SW_PlatteBreite" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SW_PlatteHoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TW_Stk" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TW_Hoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TW_Bodenfreiheit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TW_Bruestungshoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TW_BreiteSchild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TW_BreiteAussp" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TW_HoeheSchild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TW_HoeheAussp" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TW_PlatteBreiteSchild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TW_PlatteBreiteAussp" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TW_PlatteHoeheSchild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TW_PlatteHoeheAussp" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TW_AluTrennwand" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TW_AluETW" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TW_AluAussp" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Schild_Stk" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Schild_Hoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Schild_Bodenfreiheit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Schild_Bruestungshoehe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Schild_BreiteSchild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Schild_BreiteAussp" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Schild_HoeheSchild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Schild_HoeheAussp" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Schild_PlatteBreiteSchild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Schild_PlatteBreiteAussp" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Schild_AluAussp" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Schild_PlatteHoeheSchild" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Schild_PlatteHoeheAussp" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Lagereinheit" Member="Lagereinheit">
+    <Type Name="Lagereinheit">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Bezeichnung" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Lagereinheit_Lager" Member="Lager" ThisKey="ID" OtherKey="Einheit" Type="Lager" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Lagerkategorie" Member="Lagerkategorie">
+    <Type Name="Lagerkategorie">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Bezeichnung" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Lagerkategorie_Lager" Member="Lager" ThisKey="ID" OtherKey="Kategorie" Type="Lager" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VIEW_ArchivRechnungAlle" Member="VIEW_ArchivRechnungAlle">
+    <Type Name="VIEW_ArchivRechnungAlle">
+      <Column Name="RechnungID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StornoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KundeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name_Firma" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Empfänger" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="RechDatum" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Mahndatum" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Einbehalt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SR" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="BV" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="BV2" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Nettobetrag" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
+      <Column Name="Gesamtbetrag" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
+      <Column Name="Nachlass" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
+      <Column Name="NachlassArt" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="Steuer" Type="System.Decimal" DbType="Decimal(9,0)" CanBeNull="true" />
+      <Column Name="Zahlungsbedingung" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Auftrag_Position" Member="Auftrag_Position">
+    <Type Name="Auftrag_Position">
+      <Column Name="PosID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AuftragID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RechnungID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Artikel" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="Sondertext" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Typ" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AnlagenStk" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Breite" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Tiefe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Türen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TW" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ZuschlagTür" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Zuschlag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ZuschlagArt" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Einzelpreis" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Alupulver" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Montage" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="AussparungStk" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AussparungTxt" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Alternativ1Typ" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Alternativ1Preis" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Alternativ2Typ" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Alternativ2Preis" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SondertextOben" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Oberlicht" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="SonderartikelEinheit" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="Auftrag_Auftrag_Position" Member="Auftrag" ThisKey="AuftragID" OtherKey="AuftragID" Type="Auftrag" IsForeignKey="true" />
+      <Association Name="Rechnung_Auftrag_Position" Member="Rechnung" ThisKey="RechnungID" OtherKey="RechnungID" Type="Rechnung" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rechnung_Position" Member="Rechnung_Position">
+    <Type Name="Rechnung_Position">
+      <Column Name="PosID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RechnungID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Artikel" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="Sondertext" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Typ" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AnlagenStk" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Breite" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Tiefe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Türen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TW" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ZuschlagTür" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Zuschlag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ZuschlagArt" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Einzelpreis" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Alupulver" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Montage" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="AussparungStk" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AussparungTxt" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Alternativ1Typ" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Alternativ1Preis" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Alternativ2Typ" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Alternativ2Preis" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SondertextOben" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SonderartikelEinheit" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="Rechnung_Rechnung_Position" Member="Rechnung" ThisKey="RechnungID" OtherKey="RechnungID" Type="Rechnung" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Lager" Member="Lager">
+    <Type Name="Lager">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Bezeichnung" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Kategorie" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Einheit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stk" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="EK" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Faktor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Lagereinheit_Lager" Member="Lagereinheit" ThisKey="Einheit" OtherKey="ID" Type="Lagereinheit" IsForeignKey="true" />
+      <Association Name="Lagerkategorie_Lager" Member="Lagerkategorie" ThisKey="Kategorie" OtherKey="ID" Type="Lagerkategorie" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Angebot_Position" Member="Angebot_Position">
+    <Type Name="Angebot_Position">
+      <Column Name="PosID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AngebotID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuftragID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Artikel" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="Sondertext" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Typ" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AnlagenStk" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Breite" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Tiefe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Türen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TW" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ZuschlagTür" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Zuschlag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ZuschlagArt" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Einzelpreis" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Alupulver" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Montage" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="AussparungStk" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AussparungTxt" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Alternativ1Typ" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Alternativ1Preis" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Alternativ2Typ" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Alternativ2Preis" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SondertextOben" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Oberlicht" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="SonderartikelEinheit" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Eventual" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Angebot_Angebot_Position" Member="Angebot" ThisKey="AngebotID" OtherKey="AngebotID" Type="Angebot" IsForeignKey="true" />
+      <Association Name="Auftrag_Angebot_Position" Member="Auftrag" ThisKey="AuftragID" OtherKey="AuftragID" Type="Auftrag" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VIEW_Nettoumsatz_KundeProMonat" Member="VIEW_Nettoumsatz_KundeProMonat">
+    <Type Name="VIEW_Nettoumsatz_KundeProMonat">
+      <Column Name="Jahr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Monat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Umsatz" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="KundeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name_Firma" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VIEW_Nettoumsatz_JahrMonat" Member="VIEW_Nettoumsatz_JahrMonat">
+    <Type Name="VIEW_Nettoumsatz_JahrMonat">
+      <Column Name="Jahr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Monat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Umsatz" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Angebot" Member="Angebot">
+    <Type Name="Angebot">
+      <Column Name="AngebotID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="KundeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Empfänger" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Datum" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Typ" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Betreff" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="BV" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Gesamtbetrag" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Nachlass" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="NachlassArt" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Steuer" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Zahlungsbedingung" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Aufmaß" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="Anfahrt" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="Angebotstext" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BV2" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Sondertext" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SondertextUnten" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="VorgabedatumRechnung" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Angebot_Angebot_Position" Member="Angebot_Position" ThisKey="AngebotID" OtherKey="AngebotID" Type="Angebot_Position" />
+      <Association Name="Kunde_Angebot" Member="Kunde" ThisKey="KundeID" OtherKey="KundeID" Type="Kunde" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Auftrag" Member="Auftrag">
+    <Type Name="Auftrag">
+      <Column Name="AuftragID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Empfänger" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Datum" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Typ" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Betreff" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="BV" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Gesamtbetrag" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Nachlass" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="NachlassArt" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Steuer" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Zahlungsbedingung" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Aufmaß" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="Anfahrt" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="Angebotstext" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BV2" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Sondertext" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="KundeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Rechnungsstatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SondertextUnten" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="VorgabedatumRechnung" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Auftrag_Auftrag_Position" Member="Auftrag_Position" ThisKey="AuftragID" OtherKey="AuftragID" Type="Auftrag_Position" />
+      <Association Name="Auftrag_Angebot_Position" Member="Angebot_Position" ThisKey="AuftragID" OtherKey="AuftragID" Type="Angebot_Position" />
+      <Association Name="Kunde_Auftrag" Member="Kunde" ThisKey="KundeID" OtherKey="KundeID" Type="Kunde" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rechnung" Member="Rechnung">
+    <Type Name="Rechnung">
+      <Column Name="RechnungID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Datum" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="StornoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KundeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Gesamtbetrag" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Schlussrechnung" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="Steuer" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Empfänger" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Typ" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Betreff" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BV" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Nachlass" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="NachlassArt" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="Zahlungsbedingung" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Aufmaß" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="Anfahrt" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="BV2" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Sondertext" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Mahndatum" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Einbehalt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Rechnung_Auftrag_Position" Member="Auftrag_Position" ThisKey="RechnungID" OtherKey="RechnungID" Type="Auftrag_Position" />
+      <Association Name="Rechnung_Rechnung_Position" Member="Rechnung_Position" ThisKey="RechnungID" OtherKey="RechnungID" Type="Rechnung_Position" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Firmendaten" Member="Firmendatens">
+    <Type Name="Firmendaten">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Inhaber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Straße" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PLZ" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Ort" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefon" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Fax" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Homepage" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Steuernummer" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Ust_Nummer" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Bank1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BLZ1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Konto1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Bank2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BLZ2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Konto2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Steuertext" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="IBAN1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BIC1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IBAN2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BIC2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Bank1Aktiv" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Bank2Aktiv" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VIEW_Nettoumsatz_JahrMonat_Vergangenheit" Member="VIEW_Nettoumsatz_JahrMonat_Vergangenheits">
+    <Type Name="VIEW_Nettoumsatz_JahrMonat_Vergangenheit">
+      <Column Name="Jahr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Umsatz" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.GetAngPos" Method="GetAngPos" IsComposable="true">
+    <Parameter Name="angid" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetAngPos_Ergebnis">
+      <Column Name="PosID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AngebotID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuftragID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Artikel" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="Sondertext" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Typ" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AnlagenStk" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Breite" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Tiefe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Türen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Trennwände" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ZuschlagTür" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Einzelpreis" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Zuschlag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ZuschlagArt" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Alupulver" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Montage" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="AussparungStk" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AussparungTxt" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Alternativ1Typ" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Alternativ1Preis" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Alternativ2Typ" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Alternativ2Preis" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SondertextOben" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

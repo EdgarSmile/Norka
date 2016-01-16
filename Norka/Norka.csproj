@@ -1,0 +1,876 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D43ADEA9-EB74-4084-BFB1-54B4CE6B3EF5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Norka</RootNamespace>
+    <AssemblyName>Norka</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>Lightning.ico</ApplicationIcon>
+    <StartupObject>Norka.Program</StartupObject>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>C58504B7FC463E0D11CA0202B8072B584EB3395A</ManifestCertificateThumbprint>
+    <ManifestKeyFile>Norka_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>false</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <TargetZone>LocalIntranet</TargetZone>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DocumentationFile>bin\Release\Norka.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 't|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\t\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 't|x86' ">
+    <OutputPath>bin\x86\t\</OutputPath>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Angebote\Form_Angebot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Angebote\Form_Angebot.designer.cs">
+      <DependentUpon>Form_Angebot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archiv\Form_Archiv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archiv\Form_Archiv.designer.cs">
+      <DependentUpon>Form_Archiv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archiv\Form_Archiv_Auswahl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archiv\Form_Archiv_Auswahl.Designer.cs">
+      <DependentUpon>Form_Archiv_Auswahl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aufträge\Form_Auftrag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aufträge\Form_Auftrag.designer.cs">
+      <DependentUpon>Form_Auftrag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cockpit\dsYears.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsYears.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Cockpit\Form_Cockpit_Auswahl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cockpit\Form_Cockpit_Auswahl.Designer.cs">
+      <DependentUpon>Form_Cockpit_Auswahl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cockpit\Form_Cockpit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cockpit\Form_Cockpit.designer.cs">
+      <DependentUpon>Form_Cockpit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Const.cs" />
+    <Compile Include="Common\Entity.cs" />
+    <Compile Include="Common\Extensions.cs" />
+    <Compile Include="Common\Controls\NumericTextbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DB\DataBase.cs">
+      <DependentUpon>DataBase.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DB\DataBase.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBase.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DB\DBManager.cs" />
+    <Compile Include="dsKategorieFilter.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsKategorieFilter.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsLager.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLager.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsLagereinheit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLagereinheit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsLagerkategorie.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLagerkategorie.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsSummen.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSummen.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Extras\dsSteuer.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSteuer.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Extras\dsZeichenparameter.cs">
+      <DependentUpon>dsZeichenparameter.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Extras\dsZeichenparameter.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsZeichenparameter.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Kunden\dsLand.cs">
+      <DependentUpon>dsLand.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Kunden\dsLand.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLand.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Extras\Form_Optionen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extras\Form_Optionen.Designer.cs">
+      <DependentUpon>Form_Optionen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Func\Func.cs" />
+    <Compile Include="Kalkulationen\Kalkulation.cs" />
+    <Compile Include="Kalkulationen\Form_Kalkulation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kalkulationen\Form_Kalkulation.designer.cs">
+      <DependentUpon>Form_Kalkulation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kunden\Form_Brief.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kunden\Form_Brief.Designer.cs">
+      <DependentUpon>Form_Brief.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kunden\Form_Kunde.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kunden\Form_Kunde.Designer.cs">
+      <DependentUpon>Form_Kunde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kunden\Form_Kunde_Auswahl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kunden\Form_Kunde_Auswahl.Designer.cs">
+      <DependentUpon>Form_Kunde_Auswahl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kunden\Form_Kunde_Dubletten.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kunden\Form_Kunde_Dubletten.Designer.cs">
+      <DependentUpon>Form_Kunde_Dubletten.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kunden\Form_Kunde_MiniAuswahl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kunden\Form_Kunde_MiniAuswahl.Designer.cs">
+      <DependentUpon>Form_Kunde_MiniAuswahl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kunden\Form_Land.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kunden\Form_Land.Designer.cs">
+      <DependentUpon>Form_Land.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kunden\Form_Kunde_Uebersicht.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kunden\Form_Kunde_Uebersicht.designer.cs">
+      <DependentUpon>Form_Kunde_Uebersicht.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kunden\KundeFilter.cs" />
+    <Compile Include="Lager\Form_Lager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lager\Form_Lager.designer.cs">
+      <DependentUpon>Form_Lager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lager\Form_Lager_Ansicht.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lager\Form_Lager_Ansicht.Designer.cs">
+      <DependentUpon>Form_Lager_Ansicht.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NorkaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NorkaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Print\PrintManager.cs" />
+    <Compile Include="Reports\dsReports.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReports.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Rechnungen\Form_Rechnung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rechnungen\Form_Rechnung.designer.cs">
+      <DependentUpon>Form_Rechnung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportManager.cs" />
+    <Compile Include="Reports\Form_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Form_Report.Designer.cs">
+      <DependentUpon>Form_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EReports.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SplashScreen\Form_Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen\Form_Splash.Designer.cs">
+      <DependentUpon>Form_Splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Angebote\Form_Angebot.resx">
+      <DependentUpon>Form_Angebot.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DB\DataBase.dbml.layout">
+      <DependentUpon>DataBase.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Archiv\Form_Archiv.resx">
+      <DependentUpon>Form_Archiv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archiv\Form_Archiv_Auswahl.resx">
+      <DependentUpon>Form_Archiv_Auswahl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aufträge\Form_Auftrag.resx">
+      <DependentUpon>Form_Auftrag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cockpit\Form_Cockpit_Auswahl.resx">
+      <DependentUpon>Form_Cockpit_Auswahl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cockpit\Form_Cockpit.resx">
+      <DependentUpon>Form_Cockpit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extras\Form_Optionen.resx">
+      <DependentUpon>Form_Optionen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kalkulationen\Form_Kalkulation.resx">
+      <DependentUpon>Form_Kalkulation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kunden\Form_Brief.resx">
+      <DependentUpon>Form_Brief.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kunden\Form_Kunde.resx">
+      <DependentUpon>Form_Kunde.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kunden\Form_Kunde_Auswahl.resx">
+      <DependentUpon>Form_Kunde_Auswahl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kunden\Form_Kunde_Dubletten.resx">
+      <DependentUpon>Form_Kunde_Dubletten.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kunden\Form_Kunde_MiniAuswahl.resx">
+      <DependentUpon>Form_Kunde_MiniAuswahl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kunden\Form_Land.resx">
+      <DependentUpon>Form_Land.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kunden\Form_Kunde_Uebersicht.resx">
+      <DependentUpon>Form_Kunde_Uebersicht.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lager\Form_Lager.resx">
+      <DependentUpon>Form_Lager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lager\Form_Lager_Ansicht.resx">
+      <DependentUpon>Form_Lager_Ansicht.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rechnungen\Form_Rechnung.resx">
+      <DependentUpon>Form_Rechnung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Form_Report.resx">
+      <DependentUpon>Form_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen\Form_Splash.resx">
+      <DependentUpon>Form_Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Start.resx">
+      <DependentUpon>Form_Start.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zeichnen\Form_Report_Zeichnen.resx">
+      <DependentUpon>Form_Report_Zeichnen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zeichnen\Form_Zeichnen.resx">
+      <DependentUpon>Form_Zeichnen.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Form_Start.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Start.designer.cs">
+      <DependentUpon>Form_Start.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zeichnen\dsZeichnen.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsZeichnen.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Zeichnen\Eckkabine.cs" />
+    <Compile Include="Zeichnen\Form_Report_Zeichnen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zeichnen\Form_Report_Zeichnen.Designer.cs">
+      <DependentUpon>Form_Report_Zeichnen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zeichnen\Form_Zeichnen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zeichnen\Form_Zeichnen.Designer.cs">
+      <DependentUpon>Form_Zeichnen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zeichnen\IPosition.cs" />
+    <Compile Include="Zeichnen\Schild.cs" />
+    <Compile Include="Zeichnen\Trennwand.cs" />
+    <Compile Include="Zeichnen\Schamwand.cs" />
+    <Compile Include="Zeichnen\Sonderkabine.cs" />
+    <Compile Include="Zeichnen\Reihenkabine.cs" />
+    <Compile Include="Zeichnen\Seitenumbruch.cs" />
+    <Compile Include="Zeichnen\Text.cs" />
+    <Compile Include="Zeichnen\Vorderwand.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filesave-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filesave-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_user-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documents_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sign - Dollar-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calculator-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Norka_Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User folder_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User folder_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-group-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-group-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calculator-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calculator-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sign - Dollar-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Text-edit-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Text Edit_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_user_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_user_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_user_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_add-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Money_Calculator_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teamviewer_logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lightning-256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lightning.ico" />
+    <None Include="DB\Create DB.sql" />
+    <None Include="DB\Insert Init-Data.sql" />
+    <None Include="dsKategorieFilter.xsc">
+      <DependentUpon>dsKategorieFilter.xsd</DependentUpon>
+    </None>
+    <None Include="dsKategorieFilter.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsKategorieFilter.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsKategorieFilter.xss">
+      <DependentUpon>dsKategorieFilter.xsd</DependentUpon>
+    </None>
+    <None Include="dsLager.xsc">
+      <DependentUpon>dsLager.xsd</DependentUpon>
+    </None>
+    <None Include="dsLager.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLager.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsLager.xss">
+      <DependentUpon>dsLager.xsd</DependentUpon>
+    </None>
+    <None Include="dsLagereinheit.xsc">
+      <DependentUpon>dsLagereinheit.xsd</DependentUpon>
+    </None>
+    <None Include="dsLagereinheit.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLagereinheit.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsLagereinheit.xss">
+      <DependentUpon>dsLagereinheit.xsd</DependentUpon>
+    </None>
+    <None Include="dsLagerkategorie.xsc">
+      <DependentUpon>dsLagerkategorie.xsd</DependentUpon>
+    </None>
+    <None Include="dsLagerkategorie.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLagerkategorie.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsLagerkategorie.xss">
+      <DependentUpon>dsLagerkategorie.xsd</DependentUpon>
+    </None>
+    <None Include="dsSummen.xsc">
+      <DependentUpon>dsSummen.xsd</DependentUpon>
+    </None>
+    <None Include="dsSummen.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSummen.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsSummen.xss">
+      <DependentUpon>dsSummen.xsd</DependentUpon>
+    </None>
+    <None Include="Extras\dsZeichenparameter.xsc">
+      <DependentUpon>dsZeichenparameter.xsd</DependentUpon>
+    </None>
+    <None Include="Extras\dsZeichenparameter.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsZeichenparameter.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Extras\dsZeichenparameter.xss">
+      <DependentUpon>dsZeichenparameter.xsd</DependentUpon>
+    </None>
+    <Content Include="Resources\add_32.png" />
+    <None Include="Cockpit\dsYears.xsc">
+      <DependentUpon>dsYears.xsd</DependentUpon>
+    </None>
+    <None Include="Cockpit\dsYears.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsYears.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Cockpit\dsYears.xss">
+      <DependentUpon>dsYears.xsd</DependentUpon>
+    </None>
+    <None Include="Extras\dsSteuer.xsc">
+      <DependentUpon>dsSteuer.xsd</DependentUpon>
+    </None>
+    <None Include="Extras\dsSteuer.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSteuer.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Extras\dsSteuer.xss">
+      <DependentUpon>dsSteuer.xsd</DependentUpon>
+    </None>
+    <None Include="NorkaDataSet.xsc">
+      <DependentUpon>NorkaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NorkaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NorkaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NorkaDataSet.xss">
+      <DependentUpon>NorkaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Norka_TemporaryKey.pfx" />
+    <None Include="Reports\dsReports.xsc">
+      <DependentUpon>dsReports.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\dsReports.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReports.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\dsReports.xss">
+      <DependentUpon>dsReports.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\app.manifest" />
+    <None Include="Resources\Storno.png" />
+    <None Include="Resources\Search.png" />
+    <None Include="Resources\Copy v2.png" />
+    <None Include="DB\DataBase.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataBase.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\mail_32.png" />
+    <None Include="Kunden\dsLand.xsc">
+      <DependentUpon>dsLand.xsd</DependentUpon>
+    </None>
+    <None Include="Kunden\dsLand.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLand.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Kunden\dsLand.xss">
+      <DependentUpon>dsLand.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\print_32.png" />
+    <None Include="Zeichnen\dsZeichnen.xsc">
+      <DependentUpon>dsZeichnen.xsd</DependentUpon>
+    </None>
+    <None Include="Zeichnen\dsZeichnen.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsZeichnen.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Zeichnen\dsZeichnen.xss">
+      <DependentUpon>dsZeichnen.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="ADODB">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.CrystalReports.Engine">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.ReportSource">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.Shared">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.Windows.Forms">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.Common">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.WinForms">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="stdole">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

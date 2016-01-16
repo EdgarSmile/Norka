@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Norka.Reports
+{
+  public enum EReports
+  {
+    ///<summary>Stellt den Report für das Angebot dar.
+    ///</summary>
+    Angebot,
+    Auftrag,
+    Auftragsbestätigung,
+    Begleitschreiben,
+    Rechnung,
+    Telefonliste,
+    Kundendatenblatt,
+    Kalkulation,
+    Mahnung,
+    AbsageWirkungskreis,
+    AbsageProgramm,
+    Zeichnen,
+    Brief,
+    Inventurliste
+  }
+}
